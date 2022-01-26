@@ -1,0 +1,15 @@
+.popup__block {
+    margin: 34px 36px 37px 36px;
+    max-width: 358px;
+    width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 320px) {
+    .popup__block {
+        text-align: center;
+        margin: 25px 0 25px 0;
+        padding-right: 22px ;
+        padding-left: 22px ;
+        box-sizing: border-box;
+    }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="html" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+    <title>Mesto</title>
+</head>
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./image/logo.png" alt="Логотип">
+            <div class="header__line"></div>
+        </header>
+        <main>
+            <section  class="profile">
+                <div class="profile__avatar">
+                    <img class="profile__image" src="./image/image.jpg" alt="Аватарка">
+                </div>
+                <div class="profile__info">
+                    <div>
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <button class="profile__button">
+                            <img class="profile__image-info" src="./image/Vector_2.png" alt="Редактировать">
+                        </button>
+                    </div>
+                    <h2 class="profile__subtitle">Исследователь океана</h2>
+                </div>
+                <button class="profile__add-button">
+                    <img class="profile__image-button" src="./image/Vector_3.png" alt="Плюс">
+                </button>
+            </section>
+
+            <section class="elements">
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1088404-unsplash-1.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Карачаевск</h2>
+                        <img class="element__like" src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1404681-unsplash-1.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <img class="element__like" src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1556355-unsplash-1.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Домбай</h2>
+                        <img class="element__like" src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1404681-unsplash.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <img class="element__like " src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1556355-unsplash.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Домбай</h2>
+                        <img class="element__like" src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="./image/kirill-pershin-1088404-unsplash.png" alt="Природа">
+                    <div class="element__group">
+                        <h2 class="element__title">Карачаево-Ч...</h2>
+                        <img class="element__like" src="./image/like.svg" alt="Лайк">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">© 2022 Mesto Russia</p>
+        </footer>
+        <div class="popup popup_opened">
+            <div class="popup__ol">
+                <img class="popup__close" src="./image/Close Icon.png" alt="Кнопка Закрыть">
+            <form class="popup__container">
+                <div class="popup__block">
+                    <h2 class="popup__text">Редактировать профиль</h2>
+                    <fieldset class="popup__fieldset">
+                        <input id="heading" name="heading" type="text" class="popup__item popup__item-heading" placeholder="Жак-Ив Кусто">
+                        <div class="popup__line"></div> 
+                        <input id="subheading" name="subheading" type="text" class="popup__item popup__item-subheading" placeholder="Исследователь океана">
+                        <div class="popup__line"></div> 
+                        <button class="popup__button">Сохранить</button>
+                    </fieldset>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

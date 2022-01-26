@@ -1,0 +1,38 @@
+.popup__item {
+    width: 100%;
+    height: auto;
+    border: 0;
+    margin-bottom: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.popup__item::placeholder{
+    font-family: Inter;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  } 
+  .popup__item::-webkit-input-placeholder{
+    font-family: Inter;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  } 
+  .popup__item::-moz-placeholder{
+    font-family: Inter;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  } 
+  .popup__item::-ms-input-placeholder{
+    font-family: Inter;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  } 

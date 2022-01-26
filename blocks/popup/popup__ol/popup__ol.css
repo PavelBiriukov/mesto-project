@@ -1,0 +1,18 @@
+.popup__ol {
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 470px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+@media screen and (max-width: 320px) {
+    .popup__ol {
+        max-width: 282px;
+        top: 87px;
+    }
+}

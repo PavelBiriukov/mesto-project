@@ -1,0 +1,8 @@
+.footer {
+    max-width: 880px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
