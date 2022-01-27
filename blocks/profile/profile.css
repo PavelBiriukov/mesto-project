@@ -7,6 +7,16 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    padding-top: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@media screen and (max-width: 1024px) {
+    .header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 @media screen and (max-width: 535px) {
     .profile {
@@ -14,5 +24,10 @@
         flex-wrap: nowrap;
         align-items: center;
         align-content: center;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile {
+        padding-top: 38px;
     }
 }

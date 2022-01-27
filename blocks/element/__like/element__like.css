@@ -3,6 +3,14 @@
     opacity: 1;
     transition-duration: 0.5s;
     display: block;
+    background-image: url(../../../image/like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 25px;
+    height: 19px;
+    border: none;
+    background-color: rgba(0,0,0,0);
 }
 .element__like:hover {
     opacity: .6;

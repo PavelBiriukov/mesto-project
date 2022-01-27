@@ -13,15 +13,13 @@
     background-color: #000;
     opacity: 1;
     transition-duration: 0.5s;
+    background-image: url(../../../image/Vector_3.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
 }
 .profile__add-button:hover {
     opacity: .6;
-}
-@media screen and (max-width: 768px) {
-    .profile__add-button {
-        margin-right: 20px;
-        box-sizing: border-box;
-    }
 }
 
 @media screen and (max-width: 535px) {
@@ -29,5 +27,10 @@
         max-width: 282px;
         margin: 0 auto;
         margin-top: 36px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__add-button {
+        background-size: 16px 16px;
     }
 }

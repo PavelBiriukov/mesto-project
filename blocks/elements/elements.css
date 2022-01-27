@@ -11,3 +11,9 @@
     padding-bottom: 66px;
     box-sizing: border-box;
 }
+@media screen and (max-width: 320px) {
+    .elements {
+        padding-top: 36px;
+        padding-bottom: 48px;
+    }
+}

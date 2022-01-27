@@ -5,13 +5,15 @@
     opacity: 1;
     transition-duration: 0.5s;
     margin-left: auto;
+    margin-bottom: 8px;
 }
 .popup__close:hover {
     opacity: 0.6;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 535px) {
     .popup__close {
         margin-bottom: 16px;
+        max-width: 20px;
     }
 }

@@ -6,9 +6,9 @@
     font-size: 24px;
     line-height: 29px;
     color: #000000;
-    margin: 0 0 54px 0;
+    margin: 0 0 48px 0;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 535px) {
     .popup__text {
         font-size: 18px;
         line-height: 22px;

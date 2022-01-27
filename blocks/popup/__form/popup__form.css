@@ -1,8 +1,8 @@
-.popup__ol {
+.popup__form {
     position: absolute;
     top: 155px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    left: 51%;
+    transform: translate(-49%, 0);
     max-width: 470px;
     width: 100%;
     height: auto;
@@ -10,9 +10,11 @@
     flex-direction: column;
     flex-wrap: nowrap;
 }
-@media screen and (max-width: 320px) {
-    .popup__ol {
+@media screen and (max-width: 535px) {
+    .popup__form {
         max-width: 282px;
         top: 87px;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }
