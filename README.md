@@ -1,5 +1,5 @@
 # Проект: Место
-Место, сайт опубликован по адресу:https://github.com/PavelBiriukov/mesto-project-main
+Место, сайт опубликован по адресу:https://github.com/PavelBiriukov/mesto-project
 
 ### Обзор
 Проект о Место.
