@@ -10,6 +10,7 @@
     justify-content: flex-start;
     padding-top: 45px;
     border-bottom: 2px solid rgba(84, 84, 84, .7);
+    box-sizing: border-box;
 }
 @media screen and (max-width: 1024px) {
     .header {

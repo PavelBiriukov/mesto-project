@@ -9,12 +9,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    margin-top: 16px;
+    
 }
 @media screen and (max-width: 320px) {
     .profile__subtitle {
+        max-width: 235px;
         font-size: 14px;
         line-height: 17px;
-        margin-top: 14px;
+        margin-top: 6px;
     }
 }

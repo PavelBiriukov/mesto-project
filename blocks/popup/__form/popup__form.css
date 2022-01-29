@@ -1,20 +1,19 @@
 .popup__form {
-    position: absolute;
-    top: 155px;
-    left: 51%;
-    transform: translate(-49%, 0);
-    max-width: 470px;
     width: 100%;
     height: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    align-items: flex-start;
+    padding: 34px 36px 37px 36px;
+    max-width: 358px;
 }
 @media screen and (max-width: 535px) {
     .popup__form {
-        max-width: 282px;
-        top: 87px;
-        left: 50%;
-        transform: translate(-50%, 0);
+        text-align: center;
+        padding: 25px 22px 25px 22px;
+        box-sizing: border-box;
     }
 }

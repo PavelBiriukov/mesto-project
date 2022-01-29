@@ -13,13 +13,18 @@
     background-color: #000;
     opacity: 1;
     transition-duration: 0.5s;
-    background-image: url(../../../image/Vector_3.png);
+    background-image: url(../../../image/Ad__buutton.svg);
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
 }
 .profile__add-button:hover {
     opacity: .6;
+}
+@media screen and (max-width: 768px) {
+    .profile__add-button {
+        max-width: 120px;
+    }
 }
 
 @media screen and (max-width: 535px) {
