@@ -22,8 +22,6 @@
 @media screen and (max-width: 535px) {
     .profile {
         flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
         align-content: center;
     }
 }
