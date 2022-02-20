@@ -26,6 +26,7 @@
             </section>
             <section class="elements">
                 <div class="element">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1088404-unsplash-1.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Карачаевск</h2>
@@ -33,6 +34,7 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1404681-unsplash-1.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Гора Эльбрус</h2>
@@ -40,14 +42,15 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1556355-unsplash-1.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Домбай</h2>
                         <button class="element__like" type="button"></button>
                     </div>
-                    
                 </div>
                 <div class="element">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1404681-unsplash.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Гора Эльбрус</h2>
@@ -55,13 +58,15 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1556355-unsplash.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Домбай</h2>
                         <button class="element__like" type="button"></button>
                     </div>
                 </div>
-                <div class="element">
+                <div class="element ">
+                    <button class="element__delete" type="button"></button>
                     <img class="element__image" src="./image/kirill-pershin-1088404-unsplash.png" alt="Природа">
                     <div class="element__group">
                         <h2 class="element__title">Карачаево-Ч...</h2>
@@ -79,13 +84,50 @@
                 <form class="popup__form" name="popup__container">
                     <h2 class="popup__text">Редактировать профиль</h2>
                     <fieldset class="popup__fieldset">
-                        <input id="heading" name="heading" type="text" class="popup__item" placeholder="Жак-Ив Кусто">
-                        <input id="subheading" name="subheading" type="text" class="popup__item" placeholder="Исследователь океана">
-                        <button type="button" class="popup__button">Сохранить</button>
+                        <input id="heading" name="heading" type="text" class="popup__item" placeholder="Имя" value="Жак-Ив Кусто">
+                        <input id="subheading" name="subheading" type="text" class="popup__item" placeholder="О себе" value="Исследователь океана">
+                        <button id="button" type="button" class="popup__button">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
         </div>
+        <div class="popup popup_cart">
+            <div class="popup__container">
+                <button class="popup__close popup-cloce_cart" type="button"></button>
+                <form class="popup__form" name="popup__container">
+                    <h2 class="popup__text">Новое место</h2>
+                    <fieldset class="popup__fieldset">
+                        <input id="heading-cart" name="heading" type="text" class="popup__item" placeholder="Название" value="">
+                        <input id="subheading-cart" name="subheading" type="text" class="popup__item" placeholder="Ссылка на картинку" value="">
+                        <button id="button" type="button" class="popup__button popup__button_card">Сохранить</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="popup" id="popapImage">
+            <div class="popup__container popapImageOpene">
+                <button class="popup__close popup-cloce_cart" id="popapImageClouse" type="button"></button>
+                <img class="popapImageOpene__image" src="" alt="Природа">
+                <h2 class="popapImageOpene__title"></h2>
+            </div>
+        </div>
+        
     </div>
+    
+    <template id="newCart">
+        <div class="element ">
+            <button class="element__delete" type="button"></button>
+            <img class="element__image" src="" alt="Природа">
+            <div class="element__group">
+                <h2 class="element__title"></h2>
+                <button class="element__like" type="button"></button>
+            </div>
+        </div>
+    </template>
+    <template id="popapImage">
+
+    </template>
+
+    <script src="./script/script.js"></script>
 </body>
 </html>

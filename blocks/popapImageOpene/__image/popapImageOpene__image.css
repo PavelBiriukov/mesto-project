@@ -1,0 +1,11 @@
+.popapImageOpene__image{
+    object-fit: contain;
+    max-width: 75vw;
+    max-height: 75vh;
+    margin-right: 41px;
+}
+@media screen and (max-width: 535px) {
+    .popapImageOpene__image {
+        margin-right: 0;
+    }
+}
