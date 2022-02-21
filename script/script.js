@@ -22,19 +22,19 @@ const popapImageClouse = document.querySelector("#popapImageClouse");
 const popapImageOpeneTitle = document.querySelector(".popapImageOpene__title");
 const headingCart = document.querySelector('#heading-cart');
 const subheadingCart = document.querySelector('#subheading-cart');
+const popupForm = document.querySelector(".popup__form");
 //Open and Cloce Form ---
 function openPopup() {
     popap_name.classList.add("popup_opened");
 } profileButton.addEventListener("click", openPopup);//класс добавляется
 
-function closePopup() {
+function closePopup(evt) {
+    evt.preventDefault();
     popap_name.classList.remove("popup_opened");
 }
 popupClose.addEventListener("click", closePopup);//класс удаляется
-popupButton.addEventListener("click", closePopup);//класс удаляется на СОХРАНИТЬ
+popupButton.addEventListener("submit", closePopup);//класс удаляется на СОХРАНИТЬ
 
-/* nameForm.value = title.textContent;
-profForm.value = subtitle.textContent; */
 function closeCart(){
     popupCart.classList.remove("popup_opened");
 }
@@ -81,52 +81,40 @@ const initialCards = [
     ];
 
 function newCart(srcValue, titleValue) {
-    const cartTemplate = document.querySelector('#newCart').content;/*  */
-    const cartElement = cartTemplate.querySelector('.element').cloneNode(true);/* при вынесении переменной не работают */
+    const cartTemplate = document.querySelector('#newCart').content;
+    const cartElement = cartTemplate.querySelector('.element').cloneNode(true);
     cartElement.querySelector('.element__title').textContent = titleValue;
     cartElement.querySelector('.element__image').src = srcValue;
 
-  /*   cartElement.querySelector('.element__like').addEventListener('click', function (evt) {
+    cartElement.querySelector('.element__like').addEventListener('click', function (evt) {
         evt.target.classList.toggle("element__like_activ")
     });
-    cartElement.querySelector('.element__delete').addEventListener('click', function () {  работает, но при выноси из функции не работает ,но если 
-        cartElement.remove();                                                              вынести переменную  то работает но тогда карточки при 
-    });                                                                                    добавлении 2й наслаиваются друг на друга.
+    cartElement.querySelector('.element__delete').addEventListener('click', function () {  
+        cartElement.remove();                                                              
+    });                                                                                    
     cartElement.querySelector('.element__image').addEventListener('click', function () {
         popapImage.classList.toggle("popup_opened");
         popapImageOpeneTitle.textContent = cartElement.querySelector('.element__title').textContent;
         image.src = cartElement.querySelector('.element__image').src;
-    }); */
+    });
     elements.prepend(cartElement);
-}
-
-
-popupButtonCart.addEventListener('click'/* при изменениее на submit перезагружается страница */, function(sub) {
-    newCart(subheadingCart.value, headingCart.value); 
+    return cartElement;
+     
+};
+ function formSubmitHandler (evt){
+    evt.preventDefault();
+    newCart(subheadingCart.value, headingCart.value);
     headingCart.value = '';
     subheadingCart.value = '';
-/*     sub.preventDefault();  не работает  */ 
-});
+}
+popupButtonCart.addEventListener("submit",formSubmitHandler)
 
 for(let q = 0; q < 6; q++){
     function sixCard() {
-        const cartTemplateNew = document.querySelector('#newCart').content;
-        const cartElementNew = cartTemplateNew.querySelector('.element').cloneNode(true);
-        let cartElementNewClone = cartElementNew.cloneNode(true)
-        cartElementNewClone.querySelector('.element__title').textContent = initialCards[q].name;
-        cartElementNewClone.querySelector('.element__image').src = initialCards[q].link;
-        elements.prepend(cartElementNewClone);
-        /* cartElementNew.querySelector('.element__like').addEventListener('click', function (evt) {
-            evt.target.classList.toggle("element__like_activ")
-        });
-        cartElementNew.querySelector('.element__delete').addEventListener('click', function () {     все это не работает 
-            cartElementNew.remove();
-        });
-        cartElementNew.querySelector('.element__image').addEventListener('click', function () {
-            popapImage.classList.toggle("popup_opened");
-            popapImageOpeneTitle.textContent = cartElementNew.querySelector('.element__title').textContent;
-            image.src = cartElementNew.querySelector('.element__image').src;
-        }); */
+        const cartElementNew = newCart();
+        cartElementNew.querySelector('.element__title').textContent = initialCards[q].name;
+        cartElementNew.querySelector('.element__image').src = initialCards[q].link;
+        elements.prepend(cartElementNew);
     }
     sixCard();
 }
@@ -135,36 +123,14 @@ function openPopupCart(){
     popupCart.classList.add("popup_opened");
 }
 mesto.addEventListener("click", openPopupCart);
+
 function clousPopupCart(){
     popupCart.classList.remove("popup_opened");
 }
 popupButtonCart.addEventListener("click", clousPopupCart);
 
-
-/* for(let i = 0;i < massCart.length; i++){
-    function like(){
-        elementLike[i].classList.toggle("element__like_activ");
-    };
-    elementLike[i].addEventListener("click", like);
-}
-for(let a = 0;a < massCart.length; a++){
-    function del(){
-        element[a].classList.toggle("delete-cart");
-    };
-    elementDelete[a].addEventListener("click", del);
-} */
-
-/* IMAGE_OPEN */
-
-/* for(let b = 0;b < massCart.length; b++){
-    function openImage(){
-        popapImage.classList.add("popup_opened");
-        image.src = elementImage[b].src;
-        popapImageOpeneTitle.textContent = elementTitle[b].textContent;
-    };
-    elementImage[b].addEventListener("click", openImage);
-} */
 function clousImage(){
     popapImage.classList.remove("popup_opened");
 }
 popapImageClouse.addEventListener("click", clousImage);
+
