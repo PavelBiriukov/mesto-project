@@ -22,7 +22,8 @@ const popapImageClouse = document.querySelector("#popapImageClouse");
 const popapImageOpeneTitle = document.querySelector(".popapImageOpene__title");
 const headingCart = document.querySelector('#heading-cart');
 const subheadingCart = document.querySelector('#subheading-cart');
-const popupForm = document.querySelector(".popup__form");
+const popupForm = document.querySelector("#popupFormCard");
+const popupFormName = document.querySelector(".popup__form");
 //Open and Cloce Form ---
 function openPopup() {
     popap_name.classList.add("popup_opened");
@@ -33,13 +34,12 @@ function closePopup(evt) {
     popap_name.classList.remove("popup_opened");
 }
 popupClose.addEventListener("click", closePopup);//класс удаляется
-popupButton.addEventListener("submit", closePopup);//класс удаляется на СОХРАНИТЬ
+popupFormName.addEventListener("submit", closePopup);//класс удаляется на СОХРАНИТЬ
 
 function closeCart(){
     popupCart.classList.remove("popup_opened");
 }
 popupCloceCart.addEventListener("click", closeCart);
-
 //---->
 
 //Name ---
@@ -47,12 +47,10 @@ function RenameForm(){
     title.textContent = nameForm.value;
     subtitle.textContent = profForm.value;
 }
-popupButton.addEventListener("click", RenameForm);
-
+popupFormName.addEventListener("submit", RenameForm);
 // --->
 
 //New Mesto ---
-
 const initialCards = [
     {
       name: 'Архыз',
@@ -101,13 +99,14 @@ function newCart(srcValue, titleValue) {
     return cartElement;
      
 };
- function formSubmitHandler (evt){
+function formSubmitHandler (evt){
     evt.preventDefault();
     newCart(subheadingCart.value, headingCart.value);
     headingCart.value = '';
     subheadingCart.value = '';
+    popupCart.classList.remove("popup_opened");
 }
-popupButtonCart.addEventListener("submit",formSubmitHandler)
+popupForm.addEventListener("submit",formSubmitHandler);
 
 for(let q = 0; q < 6; q++){
     function sixCard() {
@@ -124,13 +123,9 @@ function openPopupCart(){
 }
 mesto.addEventListener("click", openPopupCart);
 
-function clousPopupCart(){
-    popupCart.classList.remove("popup_opened");
-}
-popupButtonCart.addEventListener("click", clousPopupCart);
-
 function clousImage(){
     popapImage.classList.remove("popup_opened");
 }
 popapImageClouse.addEventListener("click", clousImage);
+
 
