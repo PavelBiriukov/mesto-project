@@ -1,6 +1,6 @@
 const profileButton = document.querySelector(".profile__button");
-const popap_name = document.querySelector(".popup");
-const popupClose = popap_name.querySelector(".popup__close");
+const popapName = document.querySelector(".popup");
+const popupClose = popapName.querySelector(".popup__close");
 const mesto = document.querySelector(".profile__add-button");
 const elementLike = document.querySelectorAll(".element__like");
 const elementDelete = document.querySelectorAll(".element__delete");
@@ -25,29 +25,31 @@ const subheadingCart = document.querySelector('#subheading-cart');
 const popupForm = document.querySelector("#popupFormCard");
 const popupFormName = document.querySelector(".popup__form");
 //Open and Cloce Form ---
+function openClosePopupAll(openСlose) {
+    openСlose.classList.toggle("popup_opened"); //Общая функция открытия и закрытия
+} 
+//------
 function openPopup() {
-    popap_name.classList.add("popup_opened");
-} profileButton.addEventListener("click", openPopup);//класс добавляется
+    openClosePopupAll(popapName)
+} 
+profileButton.addEventListener("click", openPopup);//класс добавляется
 
-function closePopup(evt) {
-    evt.preventDefault();
-    popap_name.classList.remove("popup_opened");
-}
+function closePopup() {
+    openClosePopupAll(popapName)
+} 
 popupClose.addEventListener("click", closePopup);//класс удаляется
-popupFormName.addEventListener("submit", closePopup);//класс удаляется на СОХРАНИТЬ
-
-function closeCart(){
-    popupCart.classList.remove("popup_opened");
-}
-popupCloceCart.addEventListener("click", closeCart);
 //---->
 
+
+
 //Name ---
-function RenameForm(){
+function renameForm(evt){
+    evt.preventDefault();
     title.textContent = nameForm.value;
     subtitle.textContent = profForm.value;
+    closePopup()
 }
-popupFormName.addEventListener("submit", RenameForm);
+popupFormName.addEventListener("submit", renameForm);
 // --->
 
 //New Mesto ---
@@ -91,24 +93,26 @@ function newCart(srcValue, titleValue) {
         cartElement.remove();                                                              
     });                                                                                    
     cartElement.querySelector('.element__image').addEventListener('click', function () {
-        popapImage.classList.toggle("popup_opened");
+        openClosePopupAll(popapImage)
         popapImageOpeneTitle.textContent = cartElement.querySelector('.element__title').textContent;
         image.src = cartElement.querySelector('.element__image').src;
     });
-    elements.prepend(cartElement);
-    return cartElement;
-     
+    return cartElement;  
 };
+function renderCard() {
+    const renderNewCart = newCart(subheadingCart.value, headingCart.value);
+    elements.prepend(renderNewCart);
+}
 function formSubmitHandler (evt){
     evt.preventDefault();
-    newCart(subheadingCart.value, headingCart.value);
+    renderCard();
     headingCart.value = '';
     subheadingCart.value = '';
-    popupCart.classList.remove("popup_opened");
+    openClosePopupAll(popupCart)
 }
 popupForm.addEventListener("submit",formSubmitHandler);
 
-for(let q = 0; q < 6; q++){
+for(let q = 0; q < initialCards.length; q++){
     function sixCard() {
         const cartElementNew = newCart();
         cartElementNew.querySelector('.element__title').textContent = initialCards[q].name;
@@ -119,12 +123,17 @@ for(let q = 0; q < 6; q++){
 }
 
 function openPopupCart(){
-    popupCart.classList.add("popup_opened");
+    openClosePopupAll(popupCart)
 }
 mesto.addEventListener("click", openPopupCart);
 
+function closeCart(){
+    openClosePopupAll(popupCart);
+}
+popupCloceCart.addEventListener("click", closeCart);
+
 function clousImage(){
-    popapImage.classList.remove("popup_opened");
+    openClosePopupAll(popapImage);
 }
 popapImageClouse.addEventListener("click", clousImage);
 
