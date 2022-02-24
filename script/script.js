@@ -99,13 +99,14 @@ function newCart(srcValue, titleValue) {
     });
     return cartElement;  
 };
-function renderCard() {
-    const renderNewCart = newCart(subheadingCart.value, headingCart.value);
+
+function renderCard(link, name) {
+    const renderNewCart = newCart(link, name);
     elements.prepend(renderNewCart);
 }
 function formSubmitHandler (evt){
     evt.preventDefault();
-    renderCard();
+    renderCard(subheadingCart.value, headingCart.value);
     headingCart.value = '';
     subheadingCart.value = '';
     openClosePopupAll(popupCart)
@@ -114,10 +115,7 @@ popupForm.addEventListener("submit",formSubmitHandler);
 
 for(let q = 0; q < initialCards.length; q++){
     function sixCard() {
-        const cartElementNew = newCart();
-        cartElementNew.querySelector('.element__title').textContent = initialCards[q].name;
-        cartElementNew.querySelector('.element__image').src = initialCards[q].link;
-        elements.prepend(cartElementNew);
+        renderCard(initialCards[q].link, initialCards[q].name);
     }
     sixCard();
 }
