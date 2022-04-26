@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css" type="text/css">
     <title>Mesto</title>
 </head>
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./image/Vector__logo.svg" alt="Логотип">
+            <img class="header__logo" src="<%=require('./image/Vector__logo.svg')%>" alt="Логотип">
         </header>
         <main class="main">
             <section  class="profile">
-                <img class="profile__image" src="./image/image.jpg" alt="Аватарка">
+                <img class="profile__image" src="<%=require('./image/image.jpg')%>" alt="Аватарка">
                 <div class="profile__info">
                     <div class="profile__name">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -32,32 +31,39 @@
             <p class="footer__text">© 2022 Mesto Russia</p>
         </footer>
         <div class="popup popap_name">
+            <div class="overlay"></div>
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
-                <form class="popup__form" name="popup__container">
+                <form class="popup__form" name="popup__container" novalidate>
                     <h2 class="popup__text popup__text_name">Редактировать профиль</h2>
                     <fieldset class="popup__fieldset">
-                        <input id="heading" name="heading" type="text" class="popup__item" placeholder="Имя" value="Жак-Ив Кусто">
-                        <input id="subheading" name="subheading" type="text" class="popup__item" placeholder="О себе" value="Исследователь океана">
+                        <input minlength="2" maxlength="40" required id="heading" name="heading" type="text" class="popup__item" placeholder="Имя" value="Жак-Ив Кусто">
+                        <span class="error-input heading-error"></span>
+                        <input minlength="2" maxlength="200" required id="subheading" name="subheading" type="text" class="popup__item" placeholder="О себе" value="Исследователь океана">
+                        <span class="error-input subheading-error"></span>
                         <button id="button" type="submit" class="popup__button">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
         </div>
         <div class="popup popup_cart">
+            <div class="overlay"></div>
             <div class="popup__container">
                 <button class="popup__close popup-cloce_cart" type="button"></button>
                 <form class="popup__form" id="popupFormCard" name="popup__container">
                     <h2 class="popup__text">Новое место</h2>
                     <fieldset class="popup__fieldset">
-                        <input id="heading-cart" name="heading" type="text" class="popup__item" placeholder="Название" value="">
-                        <input id="subheading-cart" name="subheading" type="text" class="popup__item" placeholder="Ссылка на картинку" value="">
+                        <input minlength="2" maxlength="30" required id="heading-cart" name="heading" type="text" class="popup__item" placeholder="Название" value="">
+                        <span class="error-input heading-cart-error"></span>
+                        <input minlength="2" required id="subheading-cart" name="subheading" type="url" class="popup__item" placeholder="Ссылка на картинку" value="">
+                        <span class="error-input subheading-cart-error"></span>
                         <button type="submit" class="popup__button popup__button_card">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
         </div>
         <div class="popup" id="popapImage">
+            <div class="overlay"></div>
             <div class="popup__container popapImageOpene">
                 <button class="popup__close popup-cloce_cart" id="popapImageClouse" type="button"></button>
                 <img class="popapImageOpene__image" src="" alt="Природа">
@@ -65,7 +71,6 @@
             </div>
         </div>
         
-    </div>
     
     <template id="newCart">
         <div class="element ">
@@ -77,6 +82,5 @@
             </div>
         </div>
     </template>
-    <script src="./script/script.js"></script>
 </body>
 </html>

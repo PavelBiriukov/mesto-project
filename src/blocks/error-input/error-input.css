@@ -1,0 +1,17 @@
+.error-input{
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    margin-bottom: 13px;
+    opacity: 0;
+    transition-property: opacity, height;
+    transition-duration: .5s, 0s;
+    transition-delay: 0s, .5s;
+    height: 0;
+    overflow: hidden;
+}
+.error-input:last-of-type {
+    margin-bottom: 32px;
+}
