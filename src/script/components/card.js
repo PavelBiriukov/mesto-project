@@ -1,11 +1,13 @@
 import { elements, popupCart, popapImage, image,popapImageOpeneTitle, headingCart, subheadingCart} from './const';
-import { openClosePopupAll } from './utils';
+import { togglePopup, openPopup } from './utils';
       
-export function newCart(srcValue, titleValue) {
+export function createCard(srcValue, titleValue) {
     const cartTemplate = document.querySelector('#newCart').content;
     const cartElement = cartTemplate.querySelector('.element').cloneNode(true);
     cartElement.querySelector('.element__title').textContent = titleValue;
-    cartElement.querySelector('.element__image').src = srcValue;
+    const cartElementImg =  cartElement.querySelector('.element__image');
+    cartElementImg.src = srcValue;
+    cartElementImg.alt = titleValue;
 
     cartElement.querySelector('.element__like').addEventListener('click', function (evt) {
         evt.target.classList.toggle("element__like_activ")
@@ -13,22 +15,22 @@ export function newCart(srcValue, titleValue) {
     cartElement.querySelector('.element__delete').addEventListener('click', function () {  
         cartElement.remove();                                                              
     });                                                                                    
-    cartElement.querySelector('.element__image').addEventListener('click', function () {
-        openClosePopupAll(popapImage)
-        popapImageOpeneTitle.textContent = cartElement.querySelector('.element__title').textContent;
-        image.src = cartElement.querySelector('.element__image').src;
+    cartElementImg.addEventListener('click', function () {
+        openPopup(popapImage)
+        popapImageOpeneTitle.textContent = titleValue;
+        image.src = srcValue;
     });
     return cartElement;  
 };
 
 export function renderCard(link, name) {
-    const renderNewCart = newCart(link, name);
+    const renderNewCart = createCard(link, name);
     elements.prepend(renderNewCart);
 }
-export function formSubmitHandler (evt){
+export function addNewCard (evt){
     evt.preventDefault();
     renderCard(subheadingCart.value, headingCart.value);
-    headingCart.value = '';
+    evt.target.reset()
     subheadingCart.value = '';
-    openClosePopupAll(popupCart)
+    togglePopup(popupCart)
 }

@@ -1,11 +1,4 @@
-const enableValidationCONST = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__item',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_inactive',
-    inputErrorClass: 'popup__item_error',
-    errorClass: 'error-input_active'
-};
+import {enableValidationCONST} from './const';
 export const showInputError = (formElement, inputElement, errorMessage, object) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(object.inputErrorClass);
@@ -20,11 +13,12 @@ export const hideInputError = (formElement, inputElement, object) => {
   errorElement.textContent = '';
 }; 
 
-export const isValid = (formElement, inputElement) => {
+export const isValid = (formElement, inputElement, object) => {
+  object = enableValidationCONST;
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, enableValidationCONST);
+    showInputError(formElement, inputElement, inputElement.validationMessage, object);
   } else {
-    hideInputError(formElement, inputElement, enableValidationCONST);
+    hideInputError(formElement, inputElement, object);
   }
 }; 
 export const hasInvalidInput = (inputList) => {
@@ -34,19 +28,21 @@ export const hasInvalidInput = (inputList) => {
 };
 export const toggleButtonState = (inputList, buttonElement, object) => {
   if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true; 
     buttonElement.classList.add(object.inactiveButtonClass);
   } else {
+    buttonElement.disabled = false; 
     buttonElement.classList.remove(object.inactiveButtonClass);
   }
 };
 export const setEventListeners = (formElement, object) => {
   const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));
   const buttonElement = formElement.querySelector(object.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, enableValidationCONST);
+  toggleButtonState(inputList, buttonElement, object);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement, enableValidationCONST);
+      isValid(formElement, inputElement, object);
+      toggleButtonState(inputList, buttonElement, object);
     });
   });
 };
@@ -56,6 +52,7 @@ export const enableValidation = (object) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(formElement, enableValidationCONST);
+    object = enableValidationCONST;
+    setEventListeners(formElement, object);
   });
 };

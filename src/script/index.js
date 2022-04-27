@@ -1,42 +1,35 @@
 import '../pages/index.css'
-import { popupFormName, profileButton, popupClose, mesto, popupCloceCart, popupForm, 
-  overlay, initialCards, enableValidationCONST } from './components/const';
-import {renameForm, closePopup, clousImage, closeCart, openPopupCart, openPopup } from './components/utils'
-import {renderCard, formSubmitHandler} from './components/card'
+import {popups, popupFormName, profileButton, mesto, cardForm, initialCards,
+  enableValidationCONST} from './components/const';
+import {renameForm,closePopup, openPopupName, openPopupCart } from './components/utils'
+import {renderCard, addNewCard} from './components/card'
 import { enableValidation } from './components/validate'
+
+profileButton.addEventListener("click", openPopupName);//класс добавляется
+mesto.addEventListener("click", openPopupCart);//класс добавляется
+
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('overlay')) {
+      closePopup(popup)
+    }
+      if (evt.target.classList.contains('popup__close')) {
+        closePopup(popup)
+      }
+  })
+})
+popupFormName.addEventListener("submit", renameForm);
+// --->
 
 // Valid---
 enableValidation(enableValidationCONST);
 // --->
 
-//Open and Cloce Form ---
-mesto.addEventListener("click", openPopupCart);
-
-popupCloceCart.addEventListener("click", closeCart);
-
-overlay[1].addEventListener("click", closeCart);
-
-popapImageClouse.addEventListener("click", clousImage);
-
-overlay[2].addEventListener("click", clousImage);
-
-profileButton.addEventListener("click", openPopup);//класс добавляется
-
-popupClose.addEventListener("click", closePopup);//класс удаляется
-
-overlay[0].addEventListener("click", closePopup);
-
-popupFormName.addEventListener("submit", renameForm);
-// --->
-
 //New Mesto ---
-popupForm.addEventListener("submit",formSubmitHandler);
+cardForm.addEventListener("submit",addNewCard);
 
 for(let q = 0; q < initialCards.length; q++){
-    function sixCard() {
-        renderCard(initialCards[q].link, initialCards[q].name);
-    }
-    sixCard();
+  renderCard(initialCards[q].link, initialCards[q].name);
 }
 // --->
 

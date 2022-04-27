@@ -1,7 +1,7 @@
 export const popupFormName = document.querySelector(".popup__form");
 export const profileButton = document.querySelector(".profile__button");
 export const popapName = document.querySelector(".popup");
-export const popupClose = popapName.querySelector(".popup__close");
+export const profileCloseBtn = popapName.querySelector(".popup__close");
 export const mesto = document.querySelector(".profile__add-button");
 export const elements = document.querySelector(".elements");
 export const popupCart = document.querySelector(".popup_cart");
@@ -10,15 +10,17 @@ export const profForm = document.querySelector("#subheading");
 export const title = document.querySelector(".profile__title");
 export const subtitle = document.querySelector(".profile__subtitle");
 export const popupCloceCart = document.querySelector(".popup-cloce_cart");
-export const popapImage = document.querySelector("#popapImage");
+export const popapImage = document.querySelector(".popup_image");
 export const image = document.querySelector(".popapImageOpene__image");
 export const popapImageClouse = document.querySelector("#popapImageClouse");
 export const popapImageOpeneTitle = document.querySelector(".popapImageOpene__title");
 export const headingCart = document.querySelector('#heading-cart');
 export const subheadingCart = document.querySelector('#subheading-cart');
-export const popupForm = document.querySelector("#popupFormCard");
-export const overlay = document.querySelectorAll(".overlay");
-export const buttonElement = document.querySelectorAll('.popup__button');
+export const cardForm = document.querySelector("#popupFormCard");
+export const overlays = document.querySelectorAll(".overlay");
+export const buttonElements = document.querySelectorAll('.popup__button');
+export const popupButtonCard = document.querySelector('.popup__button_card');
+export const popups = document.querySelectorAll('.popup')
 export const enableValidationCONST = {
     formSelector: '.popup__form',
     inputSelector: '.popup__item',
