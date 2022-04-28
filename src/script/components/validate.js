@@ -1,4 +1,4 @@
-import {enableValidationCONST} from './const';
+import { enableValidationCONST } from './const';
 export const showInputError = (formElement, inputElement, errorMessage, object) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(object.inputErrorClass);
@@ -11,16 +11,15 @@ export const hideInputError = (formElement, inputElement, object) => {
   inputElement.classList.remove(object.inputErrorClass);
   errorElement.classList.remove(object.errorClass);
   errorElement.textContent = '';
-}; 
+};
 
 export const isValid = (formElement, inputElement, object) => {
-  object = enableValidationCONST;
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, object);
   } else {
     hideInputError(formElement, inputElement, object);
   }
-}; 
+};
 export const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
@@ -28,10 +27,10 @@ export const hasInvalidInput = (inputList) => {
 };
 export const toggleButtonState = (inputList, buttonElement, object) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true; 
+    buttonElement.disabled = true;
     buttonElement.classList.add(object.inactiveButtonClass);
   } else {
-    buttonElement.disabled = false; 
+    buttonElement.disabled = false;
     buttonElement.classList.remove(object.inactiveButtonClass);
   }
 };
@@ -52,7 +51,6 @@ export const enableValidation = (object) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    object = enableValidationCONST;
     setEventListeners(formElement, object);
   });
 };
