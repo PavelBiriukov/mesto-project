@@ -1,5 +1,5 @@
 import { elements, popupCart, popapImage, image, popapImageOpeneTitle, headingCart, subheadingCart } from './const';
-import { closePopup, openPopup } from './utils';
+import { closePopup, openPopup, disableSaveButton } from './utils';
 
 export function createCard(srcValue, titleValue) {
     const cartTemplate = document.querySelector('#newCart').content;
@@ -33,4 +33,5 @@ export function addNewCard(evt) {
     renderCard(subheadingCart.value, headingCart.value);
     evt.target.reset()
     closePopup(popupCart)
+    disableSaveButton(popupCart);
 }

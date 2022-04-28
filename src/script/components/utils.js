@@ -4,10 +4,8 @@ export function openPopup(popup) {
     document.addEventListener('keydown', closeByEscape);
 }
 export function closePopup(popup) {
-    disabledSaveButton(popup);
     popup.classList.remove("popup_opened");
     document.removeEventListener('keydown', closeByEscape);
-    
 }
 export function closeByEscape(evt) {
     if (evt.key === 'Escape') {
@@ -18,7 +16,7 @@ export function closeByEscape(evt) {
 export function openPopupName() {
     openPopup(popapName)
 }
-function disabledSaveButton(evt){
+export function disableSaveButton(evt){
     const disabledButton = evt.querySelector(".popup__button")
     disabledButton.classList.add('popup__button_inactive');
     disabledButton.disabled = true;
@@ -30,6 +28,5 @@ export function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     title.textContent = nameForm.value;
     subtitle.textContent = profForm.value;
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
+    closePopup(popapName);
 }
