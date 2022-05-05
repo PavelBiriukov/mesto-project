@@ -1,0 +1,18 @@
+.profile__image_hover{
+    position: absolute;
+    top: 0;
+    left: -50%;
+    transform: translate(50%, 0);
+    background: rgba(0,0,0,.8);
+    background-image: url(../../../../image/Vector_logo_pencil.svg);
+    background-position: 50%;
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition-duration: .5s;
+}
+.profile__image_hover:hover{
+    opacity: 1;
+}

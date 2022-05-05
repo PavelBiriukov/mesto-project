@@ -14,8 +14,12 @@
     opacity: 1;
     transition-duration: .5s;
     cursor: pointer;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
 }
-
 .popup__button:hover {
     opacity: 0.8;
 }
@@ -27,3 +31,5 @@
         max-height: 46px;
     }
 }
+
+

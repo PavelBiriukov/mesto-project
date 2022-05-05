@@ -41,3 +41,8 @@
 @import url(../blocks/error-input/error-input.css);
 @import url(../blocks/error-input/_active/error-input_active.css);
 @import url(../blocks/overlay/overlay.css);
+@import url(../blocks/profile/__block-image/profile__block-image.css);
+@import url(../blocks/profile/__image/_hover/profile__image_hover.css);
+@import url(../blocks/element/__block-like/element__block-like.css);
+@import url(../blocks/element/__like-counter/__like-counter.css);
+@import url(../blocks/indicator/indicator.css);

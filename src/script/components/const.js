@@ -20,7 +20,13 @@ export const cardForm = document.querySelector("#popupFormCard");
 export const overlays = document.querySelectorAll(".overlay");
 export const buttonElements = document.querySelectorAll('.popup__button');
 export const popupButtonCard = document.querySelector('.popup__button_card');
-export const popups = document.querySelectorAll('.popup')
+export const popups = document.querySelectorAll('.popup');
+export const popupNewAva = document.querySelector('.popup_new-ava');
+export const profileImageHover = document.querySelector('.profile__image_hover');
+export const popupButtonNewAva = document.querySelector('.popup__button_new-ava');
+export const profileImage = document.querySelector('.profile__image');
+export const subheadingNewAva = document.querySelector('#subheading-new-ava');
+export const popupConfirmation = document.querySelector('.popup_confirmation');
 export const enableValidationCONST = {
   formSelector: '.popup__form',
   inputSelector: '.popup__item',

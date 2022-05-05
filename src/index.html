@@ -13,13 +13,16 @@
         </header>
         <main class="main">
             <section  class="profile">
-                <img class="profile__image" src="<%=require('./image/image.jpg')%>" alt="Аватарка">
+                <div class="profile__block-image">
+                    <div class="profile__image_hover"></div>
+                    <img class="profile__image" src="#" alt="Аватарка">
+                </div>
                 <div class="profile__info">
                     <div class="profile__name">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <h1 class="profile__title"></h1>
                         <button type="button" class="profile__button"></button>
                     </div>
-                    <h2 class="profile__subtitle">Исследователь океана</h2>
+                    <h2 class="profile__subtitle"></h2>
                 </div>
                 <button type="button" class="profile__add-button"></button>
             </section>
@@ -41,7 +44,13 @@
                         <span class="error-input heading-error"></span>
                         <input minlength="2" maxlength="200" required id="subheading" name="subheading" type="text" class="popup__item" placeholder="О себе" value="Исследователь океана">
                         <span class="error-input subheading-error"></span>
-                        <button id="button" type="submit" class="popup__button">Сохранить</button>
+                        <button id="button" type="submit" class="popup__button">Сохранить
+                            <div id="indicator">
+                                <div id="indicator_1" class="indicator"></div>
+                                <div id="indicator_2" class="indicator"></div>
+                                <div id="indicator_3" class="indicator"></div>
+                            </div>
+                        </button>
                     </fieldset>
                 </form>
             </div>
@@ -57,7 +66,13 @@
                         <span class="error-input heading-cart-error"></span>
                         <input minlength="2" required id="subheading-cart" name="subheading-cart" type="url" class="popup__item" placeholder="Ссылка на картинку" value="">
                         <span class="error-input subheading-cart-error"></span>
-                        <button type="submit" class="popup__button popup__button_card">Сохранить</button>
+                        <button type="submit" class="popup__button popup__button_card">Сохранить
+                            <div id="indicator">
+                                <div id="indicator_1" class="indicator"></div>
+                                <div id="indicator_2" class="indicator"></div>
+                                <div id="indicator_3" class="indicator"></div>
+                            </div>
+                        </button>
                     </fieldset>
                 </form>
             </div>
@@ -70,6 +85,44 @@
                 <h2 class="popapImageOpene__title"></h2>
             </div>
         </div>
+        <div class="popup popup_confirmation">
+            <div class="overlay"></div>
+            <div class="popup__container">
+                <button class="popup__close popup-cloce_confirmation" type="button"></button>
+                <form class="popup__form" id="popupFormCard" name="popup__container-confirmation">
+                    <h2 class="popup__text">Вы уверены?</h2>
+                    <fieldset class="popup__fieldset">
+                        <button type="submit" class="popup__button popup__button_confirmation">Да
+                            <div id="indicator">
+                                <div id="indicator_1" class="indicator"></div>
+                                <div id="indicator_2" class="indicator"></div>
+                                <div id="indicator_3" class="indicator"></div>
+                            </div>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_new-ava">
+            <div class="overlay"></div>
+            <div class="popup__container">
+                <button class="popup__close popup-cloce_new-ava" type="button"></button>
+                <form class="popup__form" id="popupFormCard" name="popup__container-new-ava">
+                    <h2 class="popup__text">Обновить аватар</h2>
+                    <fieldset class="popup__fieldset">
+                        <input minlength="2" required id="subheading-new-ava" name="subheading-new-ava" type="url" class="popup__item" placeholder="Ссылка на картинку" value="">
+                        <span class="error-input subheading-new-ava-error"></span>
+                        <button type="submit" class="popup__button popup__button_new-ava">Сохранить
+                            <div id="indicator">
+                                <div id="indicator_1" class="indicator"></div>
+                                <div id="indicator_2" class="indicator"></div>
+                                <div id="indicator_3" class="indicator"></div>
+                            </div>
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
         
     
     <template id="newCart">
@@ -78,7 +131,11 @@
             <img class="element__image" src="" alt="Природа">
             <div class="element__group">
                 <h2 class="element__title"></h2>
-                <button class="element__like" type="button"></button>
+                <div class="element__block-like">
+                    <button class="element__like" type="button"></button>
+                    <div class="element__like-counter">0</div>
+                </div>
+                
             </div>
         </div>
     </template>
