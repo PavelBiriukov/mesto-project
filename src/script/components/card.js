@@ -66,6 +66,11 @@ export function putLike(cardElement, like, id) {
       }
     })
 }
+let cardToDeletId;
+let cardElement;
+popupButtonConfirmation.addEventListener("click",() =>{  
+  deleteCard(cardToDeletId, cardElement)
+});
 
 export function createCard(srcValue, titleValue, likes, delet, id, likeMy) {
     const cartTemplate = document.querySelector('#newCart').content;
@@ -81,9 +86,8 @@ export function createCard(srcValue, titleValue, likes, delet, id, likeMy) {
     checkMyLike(cartElement, likeMy);
     cartElement.querySelector('.element__delete').addEventListener('click', function () {
         openPopup(popupConfirmation); 
-        popupButtonConfirmation.addEventListener("click",() =>{
-          deleteCard(id, cartElement)
-        });
+        cardToDeletId = id;
+        cardElement = cartElement
     });
     cartElementImg.addEventListener('click', function () {
         openPopup(popapImage)
