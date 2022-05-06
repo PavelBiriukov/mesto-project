@@ -2,12 +2,13 @@ import '../pages/index.css'
 import {
   popups, popupFormName, profileButton, mesto, cardForm, initialCards,
   enableValidationCONST, profileImageHover, popupButtonNewAva,title, subtitle, nameForm,
-  profForm, profileImage } from './components/const';
-import { handleProfileFormSubmit, closePopup, openPopupName, openPopupCart, openPopupNewAva, closeButtonNewAva } from './components/utils'
-import { renderCard, addNewCard } from './components/card'
+  profForm, profileImage, popupButtonConfirmation } from './components/const';
+import { handleProfileFormSubmit, closePopup, openPopupName, openPopupCart, openPopupNewAva, closeButtonNewAva,
+  getUserInfo} from './components/utils'
+import { renderCard, addNewCard, getCards, addLikes, clickPopupConfirmation } from './components/card'
 import { enableValidation } from './components/validate'
-import { api, addServer } from './components/api'
-
+import { api, addServer, } from './components/api'
+export let myId;
 profileButton.addEventListener("click", openPopupName);//класс добавляется
 mesto.addEventListener("click", openPopupCart);//класс добавляется
 profileImageHover.addEventListener("click", openPopupNewAva);//класс добавляется
@@ -32,19 +33,24 @@ enableValidation(enableValidationCONST);
 //New Mesto ---
 cardForm.addEventListener("submit", addNewCard);
 
+
 // --->
 //API ---
-addServer('users/me')
-.then((result) => {
-  title.textContent = result.name;
-  subtitle.textContent = result.about;
-  profileImageHover.src = result.avatar;
-  nameForm.value = result.name;
-  profForm.value = result.about;
-  profileImage.src = result.avatar;
-})
-.catch(err => console.error(`Ошибка: ${err.status}`))
-
+Promise.all([getUserInfo, getCards])
+  .then(([userData, cards]) => {
+    title.textContent = userData.name;
+    subtitle.textContent = userData.about;
+    profileImageHover.src = userData.avatar;
+    nameForm.value = userData.name;
+    profForm.value = userData.about;
+    profileImage.src = userData.avatar;
+    myId = userData._id;
+    addLikes(cards, myId);
+  })
+.catch(err => {
+  // тут ловим ошибку
+  console.error(`Ошибка: ${err.status}`)
+});
 // --->
 
 
