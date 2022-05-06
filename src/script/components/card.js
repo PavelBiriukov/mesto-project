@@ -14,6 +14,7 @@ export function addLikes(res, myId){
     }
 }
 function deleteCard(id, card){
+    toggleIndicator(true, popupConfirmation)
     addServer(`cards/${id}`,'DELETE')
     .then(() => {
       card.remove();
@@ -21,7 +22,7 @@ function deleteCard(id, card){
     })
     .catch(err => console.error(`Ошибка: ${err.status}`))
     .finally(res => {
-      toggleIndicator(true, popupConfirmation)
+      toggleIndicator(false, popupConfirmation)
     });
 }
 function checkMyLike(card, likes) {
@@ -32,6 +33,7 @@ function checkMyLike(card, likes) {
     })
 }
 function addNewCardServer(evt){
+    toggleIndicator(true, popupCart)
     addServer('cards','POST',({name: headingCart.value,link: subheadingCart.value}))
     .then((result) => {
         renderCard(result.link, result.name, result.likes.length, "block", result._id, result.likes);
@@ -41,7 +43,7 @@ function addNewCardServer(evt){
     })
     .catch(err => console.error(`Ошибка: ${err.status}`))
     .finally(res => {
-      toggleIndicator(true, popupCart)
+      toggleIndicator(false, popupCart)
     });
 }
 
@@ -78,7 +80,6 @@ export function createCard(srcValue, titleValue, likes, delet, id, likeMy) {
     putLike(cartElement, like, id);
     checkMyLike(cartElement, likeMy);
     cartElement.querySelector('.element__delete').addEventListener('click', function () {
-        toggleIndicator(false, popupConfirmation);
         openPopup(popupConfirmation); 
         popupButtonConfirmation.addEventListener("click",() =>{
           deleteCard(id, cartElement)
@@ -101,7 +102,7 @@ export function addNewCard(evt) {
     evt.preventDefault();
     addNewCardServer(evt);
 }
-export let getCards =  new Promise((resolve, reject) => {
+export const getCards =  new Promise((resolve, reject) => {
     addServer('cards', 'GET')
     .then((result) => {
       resolve(result)

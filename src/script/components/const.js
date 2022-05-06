@@ -28,6 +28,7 @@ export const profileImage = document.querySelector('.profile__image');
 export const subheadingNewAva = document.querySelector('#subheading-new-ava');
 export const popupConfirmation = document.querySelector('.popup_confirmation');
 export const popupButtonConfirmation = document.querySelector('.popup__button_confirmation');
+export const popupFormNewAva = document.querySelector('#popupFormNewAva');
 export const enableValidationCONST = {
   formSelector: '.popup__form',
   inputSelector: '.popup__item',

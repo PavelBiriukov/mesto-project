@@ -2,7 +2,7 @@ import '../pages/index.css'
 import {
   popups, popupFormName, profileButton, mesto, cardForm, initialCards,
   enableValidationCONST, profileImageHover, popupButtonNewAva,title, subtitle, nameForm,
-  profForm, profileImage, popupButtonConfirmation } from './components/const';
+  profForm, profileImage, popupButtonConfirmation, popupFormNewAva } from './components/const';
 import { handleProfileFormSubmit, closePopup, openPopupName, openPopupCart, openPopupNewAva, closeButtonNewAva,
   getUserInfo} from './components/utils'
 import { renderCard, addNewCard, getCards, addLikes, clickPopupConfirmation } from './components/card'
@@ -12,7 +12,7 @@ export let myId;
 profileButton.addEventListener("click", openPopupName);//класс добавляется
 mesto.addEventListener("click", openPopupCart);//класс добавляется
 profileImageHover.addEventListener("click", openPopupNewAva);//класс добавляется
-popupButtonNewAva.addEventListener("click", closeButtonNewAva);//класс добавляется
+
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('overlay')) {
@@ -24,6 +24,7 @@ popups.forEach((popup) => {
   })
 })
 popupFormName.addEventListener("submit", handleProfileFormSubmit);
+popupFormNewAva.addEventListener("submit", closeButtonNewAva);
 // --->
 
 // Valid---

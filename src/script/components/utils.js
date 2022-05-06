@@ -9,19 +9,29 @@ export function toggleIndicator(activ, popap){
     }
 }
 function addNameForm(){
+    toggleIndicator(true, popapName);
     addServer('users/me','PATCH',({name: nameForm.value, about: profForm.value}))
     .then((result) => {
       title.textContent = result.name;
       subtitle.textContent = result.about;
+      closePopup(popapName);
     })
     .catch(err => console.error(`Ошибка: ${err.status}`))
+    .finally(res => {
+        toggleIndicator(false, popapName)
+    });
 }
 function addNewAva(){
+    toggleIndicator(true, popupNewAva);
     addServer('users/me/avatar','PATCH',({avatar: subheadingNewAva.value}))
     .then((result) => {
         profileImage.src = subheadingNewAva.value;
+        closePopup(popupNewAva);
     })
     .catch(err => console.error(`Ошибка: ${err.status}`))
+    .finally(res => {
+        toggleIndicator(false, popupNewAva);
+    });
 }
 export function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -38,7 +48,6 @@ export function closeByEscape(evt) {
     }
 }
 export function openPopupName() {
-    toggleIndicator(false, popapName)
     openPopup(popapName)
 }
 export function disableSaveButton(evt){
@@ -47,27 +56,22 @@ export function disableSaveButton(evt){
     disabledButton.disabled = true;
 }
 export function openPopupCart() {
-    toggleIndicator(false, popupCart)
     openPopup(popupCart)
 }
 export function openPopupNewAva() {
-    toggleIndicator(false, popupNewAva);
     openPopup(popupNewAva)
 }
 
-export function closeButtonNewAva() {
+export function closeButtonNewAva(evt) {
+    evt.preventDefault();
     addNewAva();
-    closePopup(popupNewAva);
-    toggleIndicator(true, popupNewAva);
 }
   
 export function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     addNameForm();
-    closePopup(popapName);
-    toggleIndicator(true, popapName);
 }
-export let getUserInfo = new Promise ((resolve, reject) => {
+export const getUserInfo = new Promise ((resolve, reject) => {
     addServer('users/me', 'GET')
     .then((result) => {
       resolve(result)
